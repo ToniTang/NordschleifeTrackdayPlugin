@@ -176,8 +176,10 @@ function script.update(dt)
         collisionTimeout = collisionTimeout - dt
     elseif player.speedKmh > 0 and player.collisionPosition.y > minCollisionHeight then
         if player.collidedWith >= 0 then
-            onCollision { Speed = player.speedKmh }
-            collisionTimeout = 1
+            if not isWithinPits(player.position) then
+                onCollision { Speed = player.speedKmh }
+                collisionTimeout = 1
+            end
         end
     end
 

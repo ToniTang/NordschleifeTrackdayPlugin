@@ -696,7 +696,7 @@ public class NordschleifeTrackdayCommandModule : ACModuleBase
     {
         Reply("Richest Drivers:");
         int i = 1;
-        foreach (var entry in _plugin.Leaderboard())
+        foreach (var entry in _plugin.PointsLeaderboard())
         {
             Reply($"{i}. @{entry.Value.Item1} - {entry.Value.Item2} points");
             i++;
